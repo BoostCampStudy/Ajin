@@ -19,7 +19,7 @@ int solution(vector<int> queue1, vector<int> queue2) {
 
     int maxIndex = queue1.size() + queue2.size();
 
-    while (index1 < maxIndex && index2 < maxIndex) {
+    while (index1 < maxIndex && index2 < maxIndex) { 
         if (sum1 == sum2) {
             return answer;
         }
