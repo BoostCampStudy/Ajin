@@ -1,14 +1,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 string change_n(int n, int num);
+string nums = "0123456789ABCDEF";
 
 string solution(int n, int t, int m, int p) {
     string answer = "";
     string temp = "0";
+
     for(int i = 0; temp.size() <= t * m; i++) {
         temp += change_n(n, i);
     }
@@ -29,17 +32,9 @@ string solution(int n, int t, int m, int p) {
 string change_n(int n, int num) {
     string new_n = "";
     while(num > 0) {
-        int temp = num % n;
-        string c;
-        if(temp > 9) {
-            c = (char)(temp + 'A'-10);
-        }
-        else {
-            c = to_string(temp);
-        }
-        new_n.insert(0,c);
-        
+        new_n += nums[num % n];
         num /= n;
     }
+    reverse(new_n.begin(), new_n.end());
     return new_n;
 }

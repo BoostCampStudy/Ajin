@@ -17,13 +17,11 @@ vector<string> solution(vector<string> record) {
         stt >> type >> id >> name;
         
         if(type.compare("Enter") == 0) {
-           // cout << i << "in" << '\n';
             comment.push_back("님이 들어왔습니다.");
             user.push_back(id);
             m[id] = name;
         }
         else if(type.compare("Leave") == 0) {
-            //cout << i << "out" << '\n';
             comment.push_back("님이 나갔습니다.");
             user.push_back(id);
         }
