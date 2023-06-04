@@ -7,9 +7,8 @@
 using namespace std;
 
 vector<string> solution(vector<string> record) {
-    vector<string> answer, user;
+    vector<string> answer, user, comment;
     map<string, string> m;
-    vector<string> comment;
     string type, id, name;
     
     for(int i = 0; i < record.size(); i++) {
