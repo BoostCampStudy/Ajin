@@ -17,10 +17,10 @@ int solution(vector<string> user_id, vector<string> banned_id) {
     n = banned_id.size();
     m = user_id.size();
     
-    for(int i = 0; i < banned_id.size(); i++) {
+    for(int i = 0; i < n; i++) {
         string ban_id = banned_id[i];
         
-        for(int j = 0; j < user_id.size(); j++) {
+        for(int j = 0; j < m; j++) {
             string cur_id = user_id[j];
             if(cur_id.size() != ban_id.size()) {
                 continue;
@@ -48,7 +48,6 @@ int solution(vector<string> user_id, vector<string> banned_id) {
 }
 
 void make_case(int depth) {
-    //cout << '\n';
     if(depth == n) {
         string temp;
         for(int i = 0; i < m; i++) {
@@ -57,31 +56,25 @@ void make_case(int depth) {
             }
         }
         cnt[temp]++;
-        //cout << "야호!\n";
+
         return;
     }
     
     bool pick = false;
     for(int i = 0; i < idx[depth].size(); i++) {
-        //cout << depth << ' ' << i << ':';
-        
         int cur_idx = idx[depth][i];
-        //cout << cur_idx << ' ';
         
         if(check[cur_idx] == true) {
-            //cout << "땡\n";
             continue;
         }
         else {
             check[cur_idx] = true;
             pick = true;
-            //cout << "다음\n";
             make_case(depth+1);
             check[cur_idx] = false;
         }
     }
     if(pick == false) {
-        fill(check.begin(), check.end(), false);
         return;
     }
 }
