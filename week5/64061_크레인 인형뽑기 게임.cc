@@ -42,7 +42,7 @@ int solution(vector<vector<int>> board, vector<int> moves) {
                 basket.erase(basket.begin() + i);
                 basket_size -= 2;
                 answer += 2;
-                check = atrue;
+                check = true;
             }
         }
 
